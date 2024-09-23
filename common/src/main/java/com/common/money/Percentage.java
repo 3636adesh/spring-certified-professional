@@ -42,8 +42,17 @@ public class Percentage implements Serializable {
     }
 
 
+    public Percentage add(Percentage  percentage){
+        return  new Percentage(value.add(percentage.value));
+    }
+
+
     public static Percentage oneHundred() {
         return new Percentage(1);
+    }
+
+    public static Percentage zero(){
+        return new Percentage(0);
     }
 
     @Override

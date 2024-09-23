@@ -29,6 +29,24 @@ public class MonetaryAmount implements Serializable {
         initValue(BigDecimal.valueOf(value));
     }
 
+    public static MonetaryAmount valueOf(String inputStr) {
+
+        if(inputStr==null||inputStr.isBlank()){
+            throw new IllegalArgumentException("The monetary amount value is required");
+        }
+        if(inputStr.startsWith("$")){
+            int index=inputStr.indexOf("$");
+            inputStr=inputStr.substring(index+1);
+        }
+        BigDecimal value = new BigDecimal(inputStr);
+        return new MonetaryAmount(value);
+
+    }
+
+    public MonetaryAmount multiplyBy(Percentage percentage) {
+        return new MonetaryAmount(value.multiply(percentage.getValue()));
+    }
+
     private void initValue(BigDecimal  value){
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
