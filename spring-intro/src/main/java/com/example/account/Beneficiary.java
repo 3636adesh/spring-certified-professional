@@ -18,4 +18,10 @@ public class Beneficiary extends Entity {
     private String name;
     private Percentage allocationPercentage;
     private MonetaryAmount savings = MonetaryAmount.valueOf("0.00");
+
+
+    public void credit(MonetaryAmount amount){
+        this.savings=savings.add(amount);
+
+    }
 }

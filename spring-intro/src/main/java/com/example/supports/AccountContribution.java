@@ -33,5 +33,13 @@ public class AccountContribution {
 		private Percentage percentage;
 
 		private MonetaryAmount totalSavings;
+
+		public Distribution(String beneficiary, MonetaryAmount amount, Percentage percentage,
+							MonetaryAmount totalSavings) {
+			this.beneficiary = beneficiary;
+			this.percentage = percentage;
+			this.amount = amount;
+			this.totalSavings = totalSavings;
+		}
 	}
 }

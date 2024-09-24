@@ -47,6 +47,10 @@ public class MonetaryAmount implements Serializable {
         return new MonetaryAmount(value.multiply(percentage.getValue()));
     }
 
+    public MonetaryAmount add(MonetaryAmount amount){
+        return new MonetaryAmount(value.add(amount.value));
+    }
+
     private void initValue(BigDecimal  value){
         if (value == null) {
             throw new IllegalArgumentException("Value cannot be null");
